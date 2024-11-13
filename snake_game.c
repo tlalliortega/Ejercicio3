@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h> // para _kbhit y _getch en Windows
+#include <conio.h> 
+#include <unistd.h>
+
 
 #define WIDTH 40
 #define HEIGHT 20
@@ -89,6 +91,7 @@ void actualizarArea() {
 
 // Bucle principal del juego 
 int main() {
+    printf("Juego de Snake\n");
     generarFruta();
     while (1) {
         dibujarArea();
@@ -99,9 +102,8 @@ int main() {
         moverSerpiente();
         actualizarArea();
         system("cls"); // Limpiar la consola (en Windows)
-        _sleep(100); // Pausar un poco para ver el movimiento
+        usleep(100000); // Pausar un poco para ver el movimiento
     }
     return 0;
 }
-
 
